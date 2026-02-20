@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 153c60da4d8c49c4892f09ba55b6f869, type: 3}
+  m_Name: GoldFood
+  m_EditorClassIdentifier: 
+  displayName: GoldFood
+  icon: {fileID: 21300000, guid: d2ddd27a2c7de4ad99b3d8c9d00e4265, type: 3}
+  type: 4
+  intParam: 0
+  floatParam: 0
+  pickupPrefab: {fileID: 73902246658589879, guid: 6992bfd915aa23d4e8bfd9d00f2d872a, type: 3}

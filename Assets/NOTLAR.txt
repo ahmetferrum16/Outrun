@@ -1,0 +1,131 @@
+
+YENI SISTEM
+
+
+gündüzleri chestler etrafta olucak. içlerinden tek kullanýmlýk eþyalar çýkýcak (1'den 5'e kadar numaralara basýp e'ye basýnca kullanýlcaklar.)
+
+gündüz bitmek üzereyken "gece yaklaþýyor!" gibi bir bildirim gelebilir yukarda.
+
+geceleri düþmanlar daha güçlü olucak. (ya farklý enemy'ler olucak ya da intervallarý artýcak.)
+
+geceleri chest'ler açýlmaya da bilir, chest'ler gold chest'e dönüþüp eðer çok düþmana ve görüþ açýsýna ragmen açarsan daha güçlü eþyalar da verebilir.
+
+chest'lerin etrafýnda bir yuvarlak alan olucak. o yuvarlak alanda f'ye bastýktan sonra 10 saniye durabilirsen chest açýlýcak.
+
+labirent gibi wall'lar olup içinde guardian adýnda yeni bir enemy türü olabilir. sadece bu labirent'in içinde hareket ediyorlar.
+
+çok kalýn duvarý olan ve içinde chest olan bir yapý. sadece 5'ten fazla dash distance yaptýysan içine girebil mesela.
+
+her gece bitimindeyse kalýcý buff'lardan birini player seçsin.
+
+
+
+
+
+
+
+
+
+
+
+TEK KULLANIMLIKLAR
+
+atom bombasý => bi anda geceyi gündüz bile yapabilicek kadar güçlü bir bomba. etraftaki herkesi en az ekranýn dýþýna iticek kadar güçlü bir þekilde player'dan uzaða itiyor.
+
+wall block => ok tuþlarýyla player'ýn etrafýndaki 8 yöne koyabilceðin bi wall parçasý.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+YAPILCAKLAR:
+
+
+düþmanlar hep ayný sürede bir spawn oluyor. oyun ilerledikçe zorlaþmalý.
+
+düþmanlar hala duvar olan yerlerde salaklaþýyor ve devriyede duvarda yapýþýyolar.
+
+Düþmanlarýn hepsinin görüþ alaný 90 derece.
+
+Bir enemy player'ý görürse yanýndakilere söyleyebilsin (belli bir circle'dekiler de beni kovalamaya baþlasýn görüþ alanýnda olmasam bile)
+
+Dýþ nesneler boyutlarý rastgele þekilde spawn olabilsin.
+
+Ground'a çiçekler ekle bunlardan her karakter geçebilsin.
+
+Game Over ekranýný görsel olarak güzelleþtir.
+
+gece ve gündüz hep belli saniyede bir olmucak (mesela yazýn 1.10 dakika gündüz 0.50 dakika gece)
+
+uzakta kalan düþmanlar 50 saniye sonra falan yok olucak. (50 saniye boyunca devriyeye devam edicekler.)(geceden gündüze dönünce de yok olabilirler.)
+
+ateþ edebilen düþmanlar olsun.
+
+EnemySpawner (Dynamic difficulty): Bir tick’te birden fazla spawn.
+
+Main Menu: Ayarlar + Credits.
+
+
+
+
+
+
+
+BUGLAR:
+
+
+Stamina Direkt olarak 0 olduktan sonra artýyor. ona cok kýsa bir süre delay ekle.
+
+Dýþ nesneleri (tree,wall..) yaratýrken yarýçapa göre boþluk býraktýðýndan 
+wall'larýn arasýndaki boþluk her zaman çok fazla oluyor???
+
+X ve Y nedense sol üstte gözükmek yerine ortalanýyor.
+
+düþman bizi görünce 0.25 saniye boyunca ? çýkýyor ama çok çirkin bir þekilde çýkýyor.
+
+full ve empty heart'lar ayný boyutta deðil.
+
+bir duvarla temasta playerFOVMesh sapýtýyor.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BUFF'LAR:
+
+
+max can artsýn.
+player gece görüþ alaný artsýn.
+
+
+
+
+
+
+
