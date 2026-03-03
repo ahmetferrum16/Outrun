@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = movement * currentSpeed;
+        rb.linearVelocity = movement * currentSpeed;
     }
 
     public void UpdateStaminaBarVisual()
