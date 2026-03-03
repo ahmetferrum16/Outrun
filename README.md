@@ -1,3 +1,5 @@
+
+
 # Outrun
 
 > A top-down 2D action survival game built with Unity. Dodge enemies, survive the night, and grow stronger with each passing minute.
@@ -69,3 +71,11 @@ Enemies operate on a three-state finite state machine:
 ## 📌 Status
 
 > 🚧 In active development — gameplay systems complete, polish ongoing.
+
+---
+
+## 🤖 AI Development Workflow
+
+This project was developed with the assistance of an AI (Claude by Anthropic) using a structured canvas system.
+
+If you'd like to continue development or use the same workflow, see [`2.md`](./2.md) — it contains the full project context, API registry, and prompt rules ready to paste into a new chat.
