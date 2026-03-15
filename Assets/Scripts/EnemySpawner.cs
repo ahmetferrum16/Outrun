@@ -172,9 +172,18 @@ public class EnemySpawner : MonoBehaviour
         unchecked { int h = a; h = (h * 16777619) ^ b; return h == 0 ? 1 : h; }
     }
 
+    // EnemySpawner.cs
     public void ScaleSpawnRate(int minute)
     {
-        spawnInterval = Mathf.Max(0.5f, spawnInterval - 0.2f);
+        if (minute <= 3)
+            spawnInterval = 4f;
+        else if (minute <= 8)
+            spawnInterval = Mathf.Max(2.5f, spawnInterval - 0.3f);
+        else if (minute <= 12)
+            spawnInterval = Mathf.Max(1.0f, spawnInterval - 0.2f);
+        else if (minute <= 15)
+            spawnInterval = Mathf.Max(0.5f, spawnInterval - 0.1f);
+
         StopAllCoroutines();
         StartCoroutine(SpawnRoutine());
     }

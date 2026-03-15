@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿// PlayerMovement.cs
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -8,7 +9,6 @@ public class PlayerMovement : MonoBehaviour
     public PlayerStats stats;
     public Slider staminaBar;
     public TextMeshProUGUI dashCooldownText;
-
     private float currentStamina;
     private float lastDashTime = -Mathf.Infinity;
     private Vector2 lastMoveDirection = Vector2.down;
@@ -16,6 +16,29 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement = Vector2.zero;
     private float currentSpeed;
+    private bool isDashingMovement = false;
+    private bool isDead = false;
+
+
+    private IEnumerator DashRoutine()
+    {
+        isDashingMovement = true;
+        float dashDuration = 0.15f;
+        float elapsed = 0f;
+        Vector2 dashDir = lastMoveDirection;
+
+        if (stats.hasBlackDash)
+            StartCoroutine(InvulnerabilityRoutine(dashDuration));
+
+        while (elapsed < dashDuration)
+        {
+            rb.linearVelocity = dashDir * (stats.dashDistance / dashDuration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        isDashingMovement = false;
+    }
 
     void Start()
     {
@@ -30,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (isDead) return;
+
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         movement = new Vector2(moveX, moveY).normalized;
@@ -37,14 +62,12 @@ public class PlayerMovement : MonoBehaviour
         if (movement != Vector2.zero)
             lastMoveDirection = movement;
 
-        if (stats.hasDash && Input.GetKeyDown(KeyCode.LeftShift) && Time.time >= lastDashTime + stats.dashCooldown)
+        if (stats.hasDash && Input.GetKeyDown(KeyCode.LeftShift)
+            && Time.time >= lastDashTime + stats.dashCooldown
+            && !isDashingMovement)
         {
-            Vector2 dashTarget = rb.position + lastMoveDirection * stats.dashDistance;
-            rb.MovePosition(dashTarget);
             lastDashTime = Time.time;
-
-            if (stats.hasBlackDash)
-                StartCoroutine(InvulnerabilityRoutine(1f));
+            StartCoroutine(DashRoutine());
         }
 
         currentSpeed = stats.normalSpeed;
@@ -71,7 +94,10 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.linearVelocity = movement * currentSpeed;
+        if (isDead) return;
+
+        if (!isDashingMovement)
+            rb.linearVelocity = movement * currentSpeed;
     }
 
     public void UpdateStaminaBarVisual()
@@ -101,4 +127,12 @@ public class PlayerMovement : MonoBehaviour
         currentStamina = stats.maxStamina;
         UpdateStaminaBarVisual();
     }
+
+    public void SetDead()
+    {
+        isDead = true;
+        rb.linearVelocity = Vector2.zero;
+        movement = Vector2.zero;
+    }
+
 }

@@ -5,6 +5,9 @@ public class EnemyManager : MonoBehaviour
 {
     private readonly HashSet<EnemyAI> allEnemies = new HashSet<EnemyAI>();
 
+    // EnemyManager.cs
+    public int EnemyCount => allEnemies.Count;
+
     void Start()
     {
         var enemiesInScene = FindObjectsOfType<EnemyAI>();

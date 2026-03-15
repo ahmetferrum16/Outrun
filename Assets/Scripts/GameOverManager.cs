@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿// GameOverManager.cs
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,15 +7,26 @@ public class GameOverManager : MonoBehaviour
 {
     public GameObject gameOverPanel;
 
-    public void ShowGameOver()
+    public void ShowGameOver(PlayerAnimationController animController = null)
     {
-        Time.timeScale = 0f; // Oyunu durdur
+        StartCoroutine(GameOverRoutine(animController));
+    }
+
+    private IEnumerator GameOverRoutine(PlayerAnimationController animController)
+    {
+        if (animController != null)
+        {
+            animController.PlayDeath();
+            yield return new WaitForSeconds(1f); // ölüm animasyonu süresi
+        }
+
+        Time.timeScale = 0f;
         gameOverPanel.SetActive(true);
     }
 
     public void HideGameOver()
     {
-        Time.timeScale = 1f; // Oyunu devam ettir
+        Time.timeScale = 1f;
         gameOverPanel.SetActive(false);
     }
 
@@ -28,7 +39,6 @@ public class GameOverManager : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
-
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif

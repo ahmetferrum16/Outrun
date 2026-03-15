@@ -62,7 +62,9 @@ public class PlayerStats : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            FindObjectOfType<GameOverManager>()?.ShowGameOver();
+            GetComponent<PlayerMovement>()?.SetDead();
+            var animController = FindObjectOfType<PlayerAnimationController>();
+            FindObjectOfType<GameOverManager>()?.ShowGameOver(animController);
         }
     }
 

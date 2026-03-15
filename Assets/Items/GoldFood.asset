@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GoldFood
   m_EditorClassIdentifier: 
   displayName: GoldFood
-  icon: {fileID: 21300000, guid: d2ddd27a2c7de4ad99b3d8c9d00e4265, type: 3}
+  icon: {fileID: -5619116058742842555, guid: a718f9cd0b7a347488781a0bac4ab438, type: 3}
   type: 4
   intParam: 0
   floatParam: 0

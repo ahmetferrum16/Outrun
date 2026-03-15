@@ -154,4 +154,20 @@ public class GameManager : MonoBehaviour
         buffSelectionUI.SetActive(false);
         Time.timeScale = 1f;
     }
+
+    // GameManager.cs
+    void OnGUI()
+    {
+        GUIStyle style = new GUIStyle();
+        style.fontSize = 18;
+        style.normal.textColor = Color.white;
+
+        float y = 120f;
+        GUI.Label(new Rect(10, y, 400, 25), $"Minute: {lastProcessedMinute}", style); y += 25;
+        GUI.Label(new Rect(10, y, 400, 25), $"Spawn Interval: {enemySpawner?.spawnInterval:F2}s", style); y += 25;
+
+        if (enemyManager != null)
+            GUI.Label(new Rect(10, y, 400, 25), $"Enemy Count: {enemyManager.EnemyCount}", style);
+    }
+
 }

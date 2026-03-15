@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Food
   m_EditorClassIdentifier: 
   displayName: Food
-  icon: {fileID: 21300000, guid: cc7e65fd16d39483aa18d865a68e9451, type: 3}
+  icon: {fileID: -5664050802494629814, guid: a718f9cd0b7a347488781a0bac4ab438, type: 3}
   type: 3
   intParam: 0
   floatParam: 0

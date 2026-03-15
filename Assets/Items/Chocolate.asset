@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Chocolate
   m_EditorClassIdentifier: 
   displayName: Chocolate
-  icon: {fileID: 21300000, guid: c624686327cf79848b9e6d4eae862585, type: 3}
+  icon: {fileID: 1148596048466274273, guid: a718f9cd0b7a347488781a0bac4ab438, type: 3}
   type: 0
   intParam: 0
   floatParam: 0
